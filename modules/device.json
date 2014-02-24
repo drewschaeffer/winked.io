@@ -1,0 +1,102 @@
+{
+  "id": "10196",
+  "type": "sensor_pod",
+  "name": "Spotter",
+  "path": "/sensor_pods/10196",
+  "dials": null,
+  "outlets": null,
+  "props": {
+    "last_reading": {
+      "connection": null,
+      "connection_updated_at": null,
+      "battery": 0.983077,
+      "battery_updated_at": 1392862572,
+      "brightness": 0,
+      "brightness_updated_at": 1392862572,
+      "external_power": true,
+      "external_power_updated_at": 1392862572,
+      "humidity": 21,
+      "humidity_updated_at": 1392862572,
+      "loudness": 0,
+      "loudness_updated_at": 1392862572,
+      "temperature": 22,
+      "temperature_updated_at": 1392862572,
+      "vibration": false,
+      "vibration_updated_at": 1392862572
+    },
+    "last_event": {
+      "brightness_occurred_at": 1392402233,
+      "loudness_occurred_at": 1392861302,
+      "vibration_occurred_at": 1392859301
+    },
+    "sensor_pod_id": "10196",
+    "name": "Spotter",
+    "locale": "en_us",
+    "units": null,
+    "lat_lng": [
+      null,
+      null
+    ],
+    "subscription": {},
+    "triggers": [
+      {
+        "trigger_id": "64170",
+        "name": "temp",
+        "enabled": true,
+        "trigger_configuration": {
+          "reading_type": "temperature",
+          "threshold": 22.1111,
+          "edge": "rising",
+          "wink_device_ids": [
+            "10196"
+          ],
+          "wink_device_types": [
+            "sensor_pod"
+          ],
+          "object_id": "10196",
+          "object_type": "sensor_pod"
+        },
+        "channel_configuration": {
+          "recipient_user_ids": [
+            "21630"
+          ],
+          "channel_id": "15",
+          "object_type": null,
+          "object_id": null
+        },
+        "triggered_at": 1392809107,
+        "sensor_threshold_event_id": "64170"
+      },
+      {
+        "trigger_id": "64171",
+        "name": "humidity",
+        "enabled": true,
+        "trigger_configuration": {
+          "reading_type": "humidity",
+          "threshold": 25,
+          "edge": "falling",
+          "wink_device_ids": [
+            "10196"
+          ],
+          "wink_device_types": [
+            "sensor_pod"
+          ],
+          "object_id": "10196",
+          "object_type": "sensor_pod"
+        },
+        "channel_configuration": {
+          "recipient_user_ids": [
+            "21630"
+          ],
+          "channel_id": "15",
+          "object_type": null,
+          "object_id": null
+        },
+        "triggered_at": 1392467252,
+        "sensor_threshold_event_id": "64171"
+      }
+    ],
+    "mac_address": "0c2a6906601a",
+    "serial": "ABAB00029006"
+  }
+}

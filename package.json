@@ -1,0 +1,28 @@
+{
+  "name": "winked.io",
+  "version": "0.0.0",
+  "description": "winked.io\r =========",
+  "main": "server.js",
+  "dependencies": {
+    "bootstrap": "~0.0.2",
+    "express": "~3.4.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drewschaeffer/winked.io.git"
+  },
+  "keywords": [
+    "Wink"
+  ],
+  "author": "Drew Schaeffer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewschaeffer/winked.io/issues"
+  },
+  "homepage": "https://github.com/drewschaeffer/winked.io"
+}

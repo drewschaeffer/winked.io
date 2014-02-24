@@ -1,0 +1,57 @@
+<html>
+<head>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+	<link href="http://cdn-na.infragistics.com/jquery/20132/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/jquery/20132/latest/css/structure/infragistics.css" rel="stylesheet" />
+
+ <script src="/scripts/angular.min.js"></script>
+ <script src="/scripts/jquery.min.js"></script>
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+     <script src="http://cdn-na.infragistics.com/jquery/20132/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/jquery/20132/latest/js/infragistics.dv.js"></script>
+
+  <script src="/controllers/app.js"></script>
+  <script src="/controllers/devicesController.js"></script>
+</head>
+<body ng-app='winked' class='container'>
+<div class="page-header">
+  <h1>winked.io <small>my devices</small></h1>
+</div>
+<div ng-controller='devicesController' class="row">	
+	<div ng-repeat='device in devices' class="panel panel-default">
+	  	<div class="panel-heading">
+	  		{{device.name}} - {{device.type}}
+	  		<button type="button" class="btn btn-default btn-sm pull-right" ng-click="getDevices()">
+			  <span class="glyphicon glyphicon-refresh"></span>
+			</button>
+	  	</div>	  	
+	  	<div class="panel-body">			
+			<!-- sensor pod begin -->
+	  		<div ng-show="device.type == 'sensor_pod'">
+	  			<div class="col-md-3">
+					<div class="panel panel-default">
+		      			<div class="panel-heading">Temperature</div>
+				  		<div class="panel-body">
+				  			<!-- Target element for the igRadialGauge -->
+							<radialgauge id="rg1" height="200px" max="100" value="tempToDisplay(device.props.last_reading.temperature)"></radialgauge>				    		
+				    		<div class="pull-right"><h6><small>updated at {{toDate(device.props.last_reading.temperature_updated_at)}}</small></h6></div>
+				  		</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">Humidity</div>
+		  				<div class="panel-body">
+		  					<radialgauge id="rg2" height="200px" max="50" value="device.props.last_reading.humidity"></radialgauge>	
+		    				<div class="pull-right"><h6><small>updated at {{toDate(device.props.last_reading.humidity_updated_at)}}</small></h6></div>
+		  				</div>
+					</div>
+				</div>
+			</div>
+			<!-- sensor_pod end -->		
+		</div>
+	</div>
+</div>
+</body>
+</html>
