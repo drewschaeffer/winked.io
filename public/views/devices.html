@@ -1,11 +1,13 @@
 <html>
 <head>
+	<link rel="stylesheet" href="/content/css/switch.css" />
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 	<link href="http://cdn-na.infragistics.com/jquery/20132/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
     <link href="http://cdn-na.infragistics.com/jquery/20132/latest/css/structure/infragistics.css" rel="stylesheet" />
 
  <script src="/scripts/angular.min.js"></script>
  <script src="/scripts/jquery.min.js"></script>
+ <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
      <script src="http://cdn-na.infragistics.com/jquery/20132/latest/js/infragistics.core.js"></script>
@@ -22,16 +24,49 @@
 	<div ng-repeat='device in devices' class="panel panel-default">
 	  	<div class="panel-heading">
 	  		{{device.name}} - {{device.type}}
-	  		<button type="button" class="btn btn-default btn-sm pull-right" ng-click="getDevices()">
-			  <span class="glyphicon glyphicon-refresh"></span>
-			</button>
+	  		<div class="pull-right">
+
+
+			<div class="btn-group">
+			  	<button type="button" class="btn btn-default btn-sm" ng-click="getDevices()">
+			  		<span class="glyphicon glyphicon-refresh"></span>
+				</button>
+
+			  	<div class="btn-group">
+			    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+			      <span class="glyphicon glyphicon-cog"></span>
+			    </button>
+			    <ul class="dropdown-menu">
+			      <li><div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox">
+      </span>
+      <input type="text" class="form-control">
+    </div></li>
+			      <li><a href="#">Show Humidity</a></li>
+			    </ul>
+			  </div>
+			</div>
+			</div>
 	  	</div>	  	
 	  	<div class="panel-body">			
 			<!-- sensor pod begin -->
 	  		<div ng-show="device.type == 'sensor_pod'">
 	  			<div class="col-md-3">
-					<div class="panel panel-default">
-		      			<div class="panel-heading">Temperature</div>
+					<div ng-controller="tempController" class="panel panel-default">
+		      			<div class="panel-heading">
+      						<div>Temperature
+      							<div class="col-sm-3 pull-right">
+	      							<div class="onoffswitch">
+									    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="tempUnits" ng-true-value='f' ng-false-value='c'>
+									    <label class="onoffswitch-label" for="myonoffswitch">
+									        <div class="onoffswitch-inner"></div>
+									        <div class="onoffswitch-switch"></div>
+									    </label>
+									</div>
+								</div>
+							</div>
+		      			</div>
 				  		<div class="panel-body">
 				  			<!-- Target element for the igRadialGauge -->
 							<radialgauge id="rg1" height="200px" max="100" value="tempToDisplay(device.props.last_reading.temperature)"></radialgauge>				    		

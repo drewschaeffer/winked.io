@@ -14,4 +14,4 @@ app.get("/", function(request, response){ //root dir
 app.use("/api/devices", require("./modules/devices"));
 
 app.listen(port, host);
-console.log("listening on port 1337");
+console.log("listening on port", port);

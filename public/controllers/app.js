@@ -24,7 +24,8 @@ app.directive("radialgauge", function() {
 			    height: scope.height,
 			    width: scope.height,
 			    maximumValue: scope.max,
-				value: scope.value
+				  value: scope.value,
+          transitionDuration: "1500"
 			});
     
     	scope.$watch("value", function(newValue, oldValue, srcScope) {

@@ -5,7 +5,7 @@ var devicesController = function($scope, $rootScope, $http) {
   		return new Date(parseInt(dt) * 1000).toLocaleString();
   };
 
-  $scope.tempType = "c";
+  $scope.tempType = "f";
   
   $scope.tempToDisplay = function(c) {
       if ($scope.tempType == "f") {
@@ -35,4 +35,24 @@ var devicesController = function($scope, $rootScope, $http) {
    $scope.devices = $scope.getDevices();
 
    $scope.tempGuageOptions = { height: "500px", width: "100%", maximumValue: 100 };
+};
+
+var tempController = function($scope, $rootScope) {
+    $scope.tempUnits = "c"; // 'f' or 'c'
+
+    $scope.tempToDisplay = function(c) {
+      if ($scope.tempUnits == "f") {
+        var f = c * 9 / 5 + 32; //Multiply by 9, then divide by 5, then add 32
+        return f;
+      }
+      else {
+        return c;
+      }
+  }; 
+};
+
+var spotterController = function($scope, $rootScope) {
+  $scope.settings = { showTemperature: true, showHumidity: true };
+ 
+  $scope.tempUnits = 'f';
 };
